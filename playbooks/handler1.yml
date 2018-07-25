@@ -1,0 +1,8 @@
+---
+- hosts: machine2
+  tasks:
+    - name: task1
+      touch: echo hello > /home/ansible/hello1.txt
+  handlers:
+    - name: handler1
+      file: path=/home/ansible/mine.txt state=touch 

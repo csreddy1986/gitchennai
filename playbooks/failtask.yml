@@ -1,0 +1,22 @@
+---
+- hosts: all
+  tasks:
+    - name: pas this
+      file: path=/home/ansible/spmefile.txt state=touch
+    - name: failed this
+      command: some
+      ignore_erros: yes
+    - name: pass 2
+      ping:
+
+- hosts: machine2
+  tasks:
+    - name: check
+      file: path=/home/ansible/check.txt state=touch
+      when: ansible_os_family == 'redhat' or ansible_hostname == 'machine2'
+
+- hosts: machine2
+  remote_user: testuser1
+  tasks:
+    - name: ping
+      ping:

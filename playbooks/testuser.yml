@@ -1,0 +1,6 @@
+---
+- hosts: machine2
+  become: yes
+  tasks:
+    - name: create testuser
+      user: name=testuser uid=1101 shell=/bin/false groups=sudo state=present

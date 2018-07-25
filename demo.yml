@@ -1,0 +1,14 @@
+---
+#comment 
+- hosts: machine2
+  tasks:
+    - name: ping machine2
+      ping:
+
+- hosts: machine2
+  tasks: 
+    - name: create file
+      file: 
+       path: /home/ansible/oneyaml.txt
+       state: touch
+
